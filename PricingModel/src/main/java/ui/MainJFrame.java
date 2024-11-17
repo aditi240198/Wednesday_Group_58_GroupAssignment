@@ -4,6 +4,12 @@
  */
 package ui;
 
+import java.awt.CardLayout;
+import model.Business.Business;
+import model.Business.ConfigureABusiness;
+import model.Supplier.SupplierDirectory;
+import ui.pricing.LoginSupplierJPanel;
+
 /**
  *
  * @author Hp
@@ -13,8 +19,11 @@ public class MainJFrame extends javax.swing.JFrame {
     /**
      * Creates new form MainJFrame
      */
+    SupplierDirectory supplierDirectory;
     public MainJFrame() {
         initComponents();
+        Business business = ConfigureABusiness.initialize();  
+        supplierDirectory = business.getSupplierDirectory();
     }
 
     /**
@@ -26,21 +35,67 @@ public class MainJFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        SplitPane = new javax.swing.JSplitPane();
+        ControlArea = new javax.swing.JPanel();
+        btnSupplier = new javax.swing.JButton();
+        userProcessContainer = new javax.swing.JPanel();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        btnSupplier.setText("Supplier");
+        btnSupplier.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSupplierActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout ControlAreaLayout = new javax.swing.GroupLayout(ControlArea);
+        ControlArea.setLayout(ControlAreaLayout);
+        ControlAreaLayout.setHorizontalGroup(
+            ControlAreaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ControlAreaLayout.createSequentialGroup()
+                .addContainerGap(21, Short.MAX_VALUE)
+                .addComponent(btnSupplier)
+                .addContainerGap())
+        );
+        ControlAreaLayout.setVerticalGroup(
+            ControlAreaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ControlAreaLayout.createSequentialGroup()
+                .addGap(149, 149, 149)
+                .addComponent(btnSupplier)
+                .addContainerGap(213, Short.MAX_VALUE))
+        );
+
+        SplitPane.setLeftComponent(ControlArea);
+
+        userProcessContainer.setLayout(new java.awt.CardLayout());
+        SplitPane.setRightComponent(userProcessContainer);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(SplitPane, javax.swing.GroupLayout.PREFERRED_SIZE, 631, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(SplitPane, javax.swing.GroupLayout.PREFERRED_SIZE, 385, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnSupplierActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSupplierActionPerformed
+        // TODO add your handling code here:
+        LoginSupplierJPanel ls = new LoginSupplierJPanel(userProcessContainer, supplierDirectory);
+        userProcessContainer.add("LoginSupplierJPanel", ls);
+        CardLayout layout = (CardLayout)userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
+    }//GEN-LAST:event_btnSupplierActionPerformed
 
     /**
      * @param args the command line arguments
@@ -78,5 +133,9 @@ public class MainJFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel ControlArea;
+    private javax.swing.JSplitPane SplitPane;
+    private javax.swing.JButton btnSupplier;
+    private javax.swing.JPanel userProcessContainer;
     // End of variables declaration//GEN-END:variables
 }
