@@ -78,5 +78,4 @@ public class OrderItem {
     public int getQuantity() {
         return quantity;
     }
-    
 }

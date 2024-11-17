@@ -16,7 +16,7 @@ import model.ProductManagement.ProductsReport;
  * @author kal bugrara
  */
 public class Supplier {
-    String name;
+     String name;
     ProductCatalog productcatalog;
    ProductsReport productsreport;
     public Supplier(String n){

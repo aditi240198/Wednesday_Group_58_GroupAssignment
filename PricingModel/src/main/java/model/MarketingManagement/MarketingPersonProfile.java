@@ -16,7 +16,7 @@ import model.Personnel.Profile;
  * @author kal bugrara
  */
 public class MarketingPersonProfile extends Profile {
-    ArrayList<Order> salesorders;
+   ArrayList<Order> salesorders;
 
 
     public MarketingPersonProfile(Person p) {
@@ -32,5 +32,6 @@ public class MarketingPersonProfile extends Profile {
     public String getRole(){
         return  "Marketing";
     }
+
 
 }
