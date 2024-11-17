@@ -8,12 +8,12 @@ package ui.pricing;
  *
  * @author Hp
  */
-public class AdjustTargetPriceHigherJPanel extends javax.swing.JPanel {
+public class SupplierWorkAreaJPanel extends javax.swing.JPanel {
 
     /**
-     * Creates new form AdjustTargetPriceHigherJPanel
+     * Creates new form SupplierWorkAreaJPanel
      */
-    public AdjustTargetPriceHigherJPanel() {
+    public SupplierWorkAreaJPanel() {
         initComponents();
     }
 
