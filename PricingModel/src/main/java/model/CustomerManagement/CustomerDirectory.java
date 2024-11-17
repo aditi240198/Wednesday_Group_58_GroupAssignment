@@ -25,6 +25,10 @@ public class CustomerDirectory {
         customerlist = new ArrayList();
 
     }
+    
+    public ArrayList<CustomerProfile> getCustomerList() {
+        return customerlist;
+    }
 
     public CustomerProfile newCustomerProfile(Person p) {
 
@@ -53,8 +57,4 @@ public class CustomerDirectory {
         }
         return customersreport; 
     } 
-
-    public ArrayList<CustomerProfile> getCustomerList() {
-        return customerlist;  // Return the actual customer list
-    }
 }

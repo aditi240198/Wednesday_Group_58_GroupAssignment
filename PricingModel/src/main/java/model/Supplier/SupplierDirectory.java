@@ -33,5 +33,4 @@ public class SupplierDirectory {
     public ArrayList<Supplier> getSuplierList(){
         return suppliers;
     }
-    
 }
