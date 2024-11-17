@@ -4,6 +4,9 @@
  */
 package ui.pricing;
 
+import javax.swing.JPanel;
+import model.Supplier.Supplier;
+
 /**
  *
  * @author Hp
@@ -13,8 +16,14 @@ public class ProductPerformanceJPanel extends javax.swing.JPanel {
     /**
      * Creates new form ProductPerformanceJPanel
      */
-    public ProductPerformanceJPanel() {
+     private JPanel userProcessContainer;
+    private Supplier supplier;
+    private SupplierWorkAreaJPanel supplierPanel;
+    public ProductPerformanceJPanel(JPanel upc, Supplier supplier, SupplierWorkAreaJPanel supplierPanel) {
         initComponents();
+         this.userProcessContainer = upc;
+        this.supplier = supplier;
+        this.supplierPanel = supplierPanel;
     }
 
     /**
