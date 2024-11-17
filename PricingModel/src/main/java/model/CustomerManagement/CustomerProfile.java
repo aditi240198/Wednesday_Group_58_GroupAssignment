@@ -25,17 +25,21 @@ public class CustomerProfile {
 
         person = p;
         orders = new ArrayList();
-
+        markets = new ArrayList();
     }
 
            
     public int getTotalPricePerformance(){
-        
+        int sum = 0;
+        for (Order o : orders){
+            sum += o.getOrderPricePerformance();
+        }
  
         //for each order in the customer orderlist 
         //calculate order price performance and add it to the sum
 
-        return 0;}
+        return sum;
+    }
  
     public int    getNumberOfOrdersAboveTotalTarget(){
         //for each order in the customer order list 
@@ -43,21 +47,30 @@ public class CustomerProfile {
         //if yes then add 1 to total 
         int sum = 0;
         for(Order o: orders){
-            if(o.isOrderAboveTotalTarget()==true) sum = sum + 1;
+            if(o.isOrderAboveTotalTarget()) 
+                sum++;
         }
         
         return sum;}
     
-    public int getNumberOfOrdersBelowTotalTarget(){return 0;}
+    public int getNumberOfOrdersBelowTotalTarget(){
+     int sum = 0;
+     for(Order o: orders){
+            if(!o.isOrderAboveTotalTarget()) 
+                sum++;
+        }
+     return sum;
+    }
+    
+    
+    
          //for each order in the customer order list 
         //calculate if order is negative
         //if yes then add 1 to total 
         
-    public boolean isMatch(String id) {
-        if (person.getPersonId().equals(id)) {
-            return true;
-        }
-        return false;
+    public boolean isMatch(String id){
+        return (person.getPersonId().equals(id)); 
+          
     }
     public void addCustomerOrder(Order o){
         orders.add(o);
@@ -71,6 +84,10 @@ public class CustomerProfile {
     }
             public Person getPerson(){
         return person;
+    }
+
+    public String getPersonId() {
+        return person.getPersonId();
     }
         
         

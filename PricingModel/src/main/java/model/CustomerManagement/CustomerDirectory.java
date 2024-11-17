@@ -53,4 +53,8 @@ public class CustomerDirectory {
         }
         return customersreport; 
     } 
+
+    public ArrayList<CustomerProfile> getCustomerList() {
+        return customerlist;  // Return the actual customer list
+    }
 }
