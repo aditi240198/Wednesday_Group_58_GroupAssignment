@@ -92,6 +92,7 @@ public class MainJFrame extends javax.swing.JFrame {
     private void btnSupplierActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSupplierActionPerformed
         // TODO add your handling code here:
         LoginSupplierJPanel ls = new LoginSupplierJPanel(userProcessContainer, supplierDirectory);
+     
         userProcessContainer.add("LoginSupplierJPanel", ls);
         CardLayout layout = (CardLayout)userProcessContainer.getLayout();
         layout.next(userProcessContainer);
