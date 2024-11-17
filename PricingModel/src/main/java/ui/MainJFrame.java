@@ -41,6 +41,7 @@ public class MainJFrame extends javax.swing.JFrame {
         userProcessContainer = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(911, 454));
 
         btnSupplier.setText("Supplier");
         btnSupplier.addActionListener(new java.awt.event.ActionListener() {
@@ -76,13 +77,13 @@ public class MainJFrame extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(SplitPane, javax.swing.GroupLayout.PREFERRED_SIZE, 631, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(SplitPane, javax.swing.GroupLayout.DEFAULT_SIZE, 911, Short.MAX_VALUE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(SplitPane, javax.swing.GroupLayout.PREFERRED_SIZE, 385, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(SplitPane)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 

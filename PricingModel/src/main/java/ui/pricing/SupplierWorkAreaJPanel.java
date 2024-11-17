@@ -45,6 +45,8 @@ public class SupplierWorkAreaJPanel extends javax.swing.JPanel {
         tblProductCatalog = new javax.swing.JTable();
         task1 = new javax.swing.JButton();
 
+        setPreferredSize(new java.awt.Dimension(1031, 608));
+
         lblTitle.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         lblTitle.setText("Product Price Performance");
 
