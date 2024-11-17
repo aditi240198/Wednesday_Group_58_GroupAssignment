@@ -1,0 +1,23 @@
+
+# Ignore build artifacts
+/build/
+
+# Ignore NetBeans project files
+nbproject/private/
+nbbuild/
+dist/
+nbdist/
+*.class
+
+# Ignore logs and temporary files
+*.log
+*.bak
+*.swp
+*.lock
+*.tmp
+*.old
+*.orig
+.DS_Store
+
+# Ignore IDE-specific settings
+**/nb-configuration.xml
