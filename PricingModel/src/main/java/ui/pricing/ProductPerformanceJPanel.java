@@ -160,19 +160,20 @@ public class ProductPerformanceJPanel extends javax.swing.JPanel {
                         .addComponent(lblTittle))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(49, 49, 49)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
+                                .addGap(12, 12, 12)
                                 .addComponent(btnAdjustPricesLower)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(38, 38, 38)
                                 .addComponent(btnAdjustPricesHigher)
-                                .addGap(31, 31, 31)
+                                .addGap(43, 43, 43)
                                 .addComponent(btnRunSimulation)
-                                .addGap(37, 37, 37)
+                                .addGap(36, 36, 36)
                                 .addComponent(btnMaximizeProfitMargins)
-                                .addGap(35, 35, 35)
+                                .addGap(36, 36, 36)
                                 .addComponent(btnGenerateReport))
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 877, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(88, Short.MAX_VALUE))
+                .addContainerGap(58, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -270,6 +271,102 @@ public class ProductPerformanceJPanel extends javax.swing.JPanel {
 
     private void btnGenerateReportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenerateReportActionPerformed
         // TODO add your handling code here:
+        ProductsReport productsReport = new ProductsReport();
+
+// Generate ProductSummary for each product and add to ProductsReport
+for (Product product : supplier.getProductCatalog().getProductList()) {
+    ProductSummary summary = new ProductSummary(product);
+    productsReport.addProductSummary(summary);
+}
+
+// Prepare the report with a modern dark blue-gray theme and bold styling
+StringBuilder report = new StringBuilder();
+report.append("<html><body style='font-family: Verdana, sans-serif; background-color: #36454F; color: #E0E0E0; padding: 20px;'>");
+report.append("<div style='text-align: center; margin-bottom: 30px;'>");
+report.append("<h1 style='color: #BB86FC; font-size: 26px; text-transform: uppercase;'>Product Performance Report</h1>");
+report.append("<p style='color: #03DAC5;'>Detailed analysis of product sales and performance metrics</p>");
+report.append("</div>");
+
+// Create a styled table for the report
+report.append("<table border='0' cellpadding='10' cellspacing='0' style='width: 100%; margin-top: 20px; border-collapse: collapse;'>");
+report.append("<tr style='background-color: #2F3A40; color: #E0E0E0; text-align: left;'>");
+report.append("<th style='padding: 10px; border-bottom: 2px solid #BB86FC;'>Product Name</th>");
+report.append("<th style='padding: 10px; border-bottom: 2px solid #BB86FC;'>Initial Target Price</th>");
+report.append("<th style='padding: 10px; border-bottom: 2px solid #BB86FC;'>Adjusted Target Price</th>");
+report.append("<th style='padding: 10px; border-bottom: 2px solid #BB86FC;'>Sales Revenue</th>");
+report.append("<th style='padding: 10px; border-bottom: 2px solid #BB86FC;'>Sales Above Target</th>");
+report.append("<th style='padding: 10px; border-bottom: 2px solid #BB86FC;'>Sales Below Target</th>");
+report.append("</tr>");
+
+// Iterate over all products and gather the required details
+for (Product product : supplier.getProductCatalog().getProductList()) {
+    int initialTargetPrice = product.getTargetPrice();
+    int adjustmentAmount = determineAdjustmentAmount(product);
+    int adjustedTargetPrice = initialTargetPrice + adjustmentAmount;
+    product.setTargetPrice(adjustedTargetPrice);
+
+    // Get product summary for performance data
+    ProductSummary summary = new ProductSummary(product);
+
+    // Append product data as a table row
+    report.append("<tr style='background-color: #46565B;'>");
+    report.append("<td style='padding: 8px; border-bottom: 1px solid #55676D;'>").append(product.getProductName()).append("</td>");
+    report.append("<td style='padding: 8px; border-bottom: 1px solid #55676D;' align='right'>").append(initialTargetPrice).append("</td>");
+    report.append("<td style='padding: 8px; border-bottom: 1px solid #55676D;' align='right'>").append(adjustedTargetPrice).append("</td>");
+    report.append("<td style='padding: 8px; border-bottom: 1px solid #55676D;' align='right'>").append(summary.getSalesRevenues()).append("</td>");
+    report.append("<td style='padding: 8px; border-bottom: 1px solid #55676D;' align='right'>").append(summary.getNumberAboveTarget()).append("</td>");
+    report.append("<td style='padding: 8px; border-bottom: 1px solid #55676D;' align='right'>").append(summary.getNumberBelowTarget()).append("</td>");
+    report.append("</tr>");
+
+    // Reset the target price after generating report
+    product.setTargetPrice(initialTargetPrice);
+}
+report.append("</table>");
+
+// Add the top product above target section
+report.append("<div style='margin-top: 30px;'>");
+ProductSummary topProduct = productsReport.getTopProductAboveTarget();
+if (topProduct != null) {
+    report.append("<h2 style='color: #BB86FC; font-size: 20px;'>Top Product Above Target</h2>");
+    report.append("<p><b>Product:</b> ").append(topProduct.getSubjectProduct().getProductName())
+          .append(" | <b>Sales Above Target:</b> ").append(topProduct.getNumberAboveTarget()).append("</p>");
+} else {
+    report.append("<h2 style='color: #BB86FC; font-size: 20px;'>Top Product Above Target</h2>");
+    report.append("<p style='color: #E0E0E0;'><i>None</i></p>");
+}
+
+// Add the list of products always above target section
+ArrayList<ProductSummary> productsAlwaysAboveTarget = productsReport.getProductsAlwaysAboveTarget();
+if (!productsAlwaysAboveTarget.isEmpty()) {
+    report.append("<h2 style='color: #03DAC5; font-size: 20px;'>Products Always Above Target</h2><ul>");
+    for (ProductSummary ps : productsAlwaysAboveTarget) {
+        report.append("<li><b>Product:</b> ").append(ps.getSubjectProduct().getProductName())
+              .append(" | <b>Sales Revenue:</b> ").append(ps.getSalesRevenues()).append("</li>");
+    }
+    report.append("</ul>");
+} else {
+    report.append("<h2 style='color: #03DAC5; font-size: 20px;'>Products Always Above Target</h2>");
+    report.append("<p style='color: #E0E0E0;'><i>None</i></p>");
+}
+report.append("</div>");
+
+report.append("</body></html>");
+
+// Display the report in a JEditorPane within a JScrollPane
+JEditorPane editorPane = new JEditorPane();
+editorPane.setEditable(false);
+editorPane.setEditorKit(new HTMLEditorKit());
+editorPane.setText(report.toString());
+
+JScrollPane scrollPane = new JScrollPane(editorPane);
+scrollPane.setPreferredSize(new Dimension(900, 600));
+
+JOptionPane.showMessageDialog(
+    null,
+    scrollPane,
+    "Product Performance Report - Modern Theme",
+    JOptionPane.INFORMATION_MESSAGE
+);
         
     }//GEN-LAST:event_btnGenerateReportActionPerformed
 
@@ -302,6 +399,37 @@ public class ProductPerformanceJPanel extends javax.swing.JPanel {
 
     private void btnMaximizeProfitMarginsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMaximizeProfitMarginsActionPerformed
         // TODO add your handling code here:
+        if (isProfitMaximized) {
+            JOptionPane.showMessageDialog(this, "Profit margins are already maximized. No further adjustments are necessary.");
+            return;
+        }
+         
+        boolean profitIncreased;
+        int iterationCount = 0;
+        int maxIterations = 10; // Cap the maximum number of iterations to avoid infinite loops
+
+        do {
+            profitIncreased = false;
+            int previousTotalProfit = calculateTotalProfit();
+
+            // Adjust target prices for all products to maximize profit margins
+            for (Product product : supplier.getProductCatalog().getProductList()) {
+                int currentTargetPrice = product.getTargetPrice();
+                int adjustmentAmount = determineAdjustmentAmount(product);
+                product.setTargetPrice(currentTargetPrice + adjustmentAmount);
+            }
+
+            int newTotalProfit = calculateTotalProfit();
+            if (newTotalProfit > previousTotalProfit) {
+                profitIncreased = true; // Profit increased, so continue adjusting
+            }
+
+            iterationCount++;
+        } while (profitIncreased && iterationCount < maxIterations);
+        isProfitMaximized = true;
+        JOptionPane.showMessageDialog(this, "Profit Margins Maximized after " + iterationCount + " iterations.");
+        populateTable();
+        supplierPanel.refreshTable();
     }//GEN-LAST:event_btnMaximizeProfitMarginsActionPerformed
 
     private int determineAdjustmentAmount(Product product) {
@@ -334,6 +462,14 @@ public class ProductPerformanceJPanel extends javax.swing.JPanel {
         return revenue;
     }
 
+    private int calculateTotalProfit() {
+        int totalProfit = 0;
+        for (Product product : supplier.getProductCatalog().getProductList()) {
+            ProductSummary summary = new ProductSummary(product);
+            totalProfit += summary.getProductPricePerformance(); // Accumulate each product's price performance
+        }
+        return totalProfit;
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAdjustPricesHigher;
     private javax.swing.JButton btnAdjustPricesLower;
