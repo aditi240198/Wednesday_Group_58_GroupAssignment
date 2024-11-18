@@ -25,18 +25,48 @@ import model.Supplier.Supplier;
  * @author Hp
  */
 public class ProductPerformanceJPanel extends javax.swing.JPanel {
+    private JPanel userProcessContainer;
+    private Supplier supplier;
+    private SupplierWorkAreaJPanel supplierPanel;
+    private boolean isProfitMaximized = false; 
 
     /**
      * Creates new form ProductPerformanceJPanel
      */
-     private JPanel userProcessContainer;
-    private Supplier supplier;
-    private SupplierWorkAreaJPanel supplierPanel;
     public ProductPerformanceJPanel(JPanel upc, Supplier supplier, SupplierWorkAreaJPanel supplierPanel) {
         initComponents();
-         this.userProcessContainer = upc;
+        this.userProcessContainer = upc;
         this.supplier = supplier;
         this.supplierPanel = supplierPanel;
+        populateTable();
+    }
+    private void populateTable() {
+        DefaultTableModel model = (DefaultTableModel) tblProductPerformance.getModel();
+        model.setRowCount(0); // Clear existing rows
+
+        // Create a list of ProductSummary objects and sort by Sales Above Target frequency in descending order
+        ArrayList<ProductSummary> productSummaries = new ArrayList<>();
+        for (Product product : supplier.getProductCatalog().getProductList()) {
+            productSummaries.add(new ProductSummary(product));
+        }
+        productSummaries.sort((p1, p2) -> Integer.compare(p2.getNumberAboveTarget(), p1.getNumberAboveTarget()));
+
+        // Populate table with each product's details, including rank based on Sales Above Target
+        int rank = 1;
+        for (ProductSummary productSummary : productSummaries) {
+            Product product = productSummary.getSubjectProduct();
+
+            Object[] row = new Object[7]; // Adjust row size for added "Rank" column
+            row[0] = rank++; // Rank column
+            row[1] = product.getProductName();
+            row[2] = product.getTargetPrice(); // Target Price column
+            row[3] = productSummary.getSalesRevenues();
+            row[4] = productSummary.getNumberAboveTarget(); // Frequency of Sales Above Target
+            row[5] = productSummary.getNumberBelowTarget();
+            row[6] = productSummary.getProductPricePerformance();
+
+            model.addRow(row);
+        }
     }
 
     /**
@@ -90,6 +120,11 @@ public class ProductPerformanceJPanel extends javax.swing.JPanel {
         });
 
         btnAdjustPricesHigher.setText("Adjust Target Prices Higher");
+        btnAdjustPricesHigher.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAdjustPricesHigherActionPerformed(evt);
+            }
+        });
 
         btnRunSimulation.setText("Run Simulation");
         btnRunSimulation.addActionListener(new java.awt.event.ActionListener() {
@@ -99,6 +134,11 @@ public class ProductPerformanceJPanel extends javax.swing.JPanel {
         });
 
         btnMaximizeProfitMargins.setText("Maximize Profit");
+        btnMaximizeProfitMargins.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMaximizeProfitMarginsActionPerformed(evt);
+            }
+        });
 
         btnGenerateReport.setText("Generate Report");
         btnGenerateReport.addActionListener(new java.awt.event.ActionListener() {
@@ -172,6 +212,14 @@ public class ProductPerformanceJPanel extends javax.swing.JPanel {
     private void btnGenerateReportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenerateReportActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnGenerateReportActionPerformed
+
+    private void btnAdjustPricesHigherActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdjustPricesHigherActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnAdjustPricesHigherActionPerformed
+
+    private void btnMaximizeProfitMarginsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMaximizeProfitMarginsActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnMaximizeProfitMarginsActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
