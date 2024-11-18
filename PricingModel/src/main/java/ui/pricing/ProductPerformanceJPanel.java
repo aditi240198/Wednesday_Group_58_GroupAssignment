@@ -203,10 +203,34 @@ public class ProductPerformanceJPanel extends javax.swing.JPanel {
 
     private void btnAdjustPricesLowerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdjustPricesLowerActionPerformed
         // TODO add your handling code here:
+        boolean adjusted = false; // Track if any product had its price adjusted
+
+        // Iterate through all products
+        for (Product product : supplier.getProductCatalog().getProductList()) {
+            ProductSummary productSummary = new ProductSummary(product);
+
+            // Lower target price for products with sales below target
+            if (productSummary.getNumberBelowTarget() > 0) {
+                int currentTargetPrice = product.getTargetPrice();
+                int adjustmentAmount = 10; // Adjust by a fixed amount (can be customized)
+                product.setTargetPrice(currentTargetPrice - adjustmentAmount);
+                adjusted = true;
+            }
+        }
+
+        // Refresh tables and display a message if adjustments were made
+        if (adjusted) {
+            populateTable();
+            supplierPanel.refreshTable();
+            JOptionPane.showMessageDialog(this, "Target prices lowered.");
+        } else {
+            JOptionPane.showMessageDialog(this, "No adjustment required.");
+        }
     }//GEN-LAST:event_btnAdjustPricesLowerActionPerformed
 
     private void btnRunSimulationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRunSimulationActionPerformed
         // TODO add your handling code here:
+        
     }//GEN-LAST:event_btnRunSimulationActionPerformed
 
     private void btnGenerateReportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenerateReportActionPerformed
@@ -215,12 +239,55 @@ public class ProductPerformanceJPanel extends javax.swing.JPanel {
 
     private void btnAdjustPricesHigherActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdjustPricesHigherActionPerformed
         // TODO add your handling code here:
+        boolean adjusted = false; // Track if any product had its price adjusted
+
+        // Iterate through all products
+        for (Product product : supplier.getProductCatalog().getProductList()) {
+            ProductSummary productSummary = new ProductSummary(product);
+
+            // Raise target price for products with sales above target
+            if (productSummary.getNumberAboveTarget() > 0) {
+                int currentTargetPrice = product.getTargetPrice();
+                int adjustmentAmount = 10; // Adjust by a fixed amount (can be customized)
+                product.setTargetPrice(currentTargetPrice + adjustmentAmount);
+                adjusted = true;
+            }
+        }
+
+        // Refresh tables and display a message if adjustments were made
+        if (adjusted) {
+            populateTable();
+            supplierPanel.refreshTable();
+            JOptionPane.showMessageDialog(this, "Target prices raised.");
+        } else {
+            JOptionPane.showMessageDialog(this, "No adjustment required.");
+        }
     }//GEN-LAST:event_btnAdjustPricesHigherActionPerformed
 
     private void btnMaximizeProfitMarginsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMaximizeProfitMarginsActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnMaximizeProfitMarginsActionPerformed
 
+    private int determineAdjustmentAmount(Product product) {
+        int adjustmentAmount = 0;
+        int salesAboveTarget = product.getNumberOfProductSalesAboveTarget();
+        int salesBelowTarget = product.getNumberOfProductSalesBelowTarget();
+        int totalSales = salesAboveTarget + salesBelowTarget;
+
+        if (totalSales == 0) return adjustmentAmount;
+
+        double aboveTargetPercentage = (double) salesAboveTarget / totalSales * 100;
+        double belowTargetPercentage = (double) salesBelowTarget / totalSales * 100;
+
+        // Apply a larger adjustment based on performance to see clearer impact
+        if (aboveTargetPercentage > 50) {
+            adjustmentAmount = (int) (product.getTargetPrice() * 0.1); // Increase by 10%
+        } else if (belowTargetPercentage > 50) {
+            adjustmentAmount = (int) (-product.getTargetPrice() * 0.1); // Decrease by 10%
+        }
+
+        return adjustmentAmount;
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAdjustPricesHigher;

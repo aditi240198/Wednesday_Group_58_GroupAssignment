@@ -147,7 +147,7 @@ public class SupplierWorkAreaJPanel extends javax.swing.JPanel {
     private javax.swing.JTable tblProductCatalog;
     // End of variables declaration//GEN-END:variables
 
-    private void refreshTable() {
+    void refreshTable() {
          DefaultTableModel model = (DefaultTableModel) tblProductCatalog.getModel();
         model.setRowCount(0); // Clear existing rows
 

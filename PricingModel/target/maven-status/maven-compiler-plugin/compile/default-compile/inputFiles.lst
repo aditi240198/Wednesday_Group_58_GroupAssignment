@@ -2,7 +2,6 @@
 /Users/pritpatel/Wednesday_Group_58_GroupAssignment/PricingModel/src/main/java/model/Personnel/EmployeeProfile.java
 /Users/pritpatel/Wednesday_Group_58_GroupAssignment/PricingModel/src/main/java/model/ProductManagement/SolutionOffer.java
 /Users/pritpatel/Wednesday_Group_58_GroupAssignment/PricingModel/src/main/java/model/OrderManagement/OrderSummary.java
-/Users/pritpatel/Wednesday_Group_58_GroupAssignment/PricingModel/src/main/java/ui/pricing/AdjustTargetPriceLowerJPanel.java
 /Users/pritpatel/Wednesday_Group_58_GroupAssignment/PricingModel/src/main/java/ui/pricing/LoginSupplierJPanel.java
 /Users/pritpatel/Wednesday_Group_58_GroupAssignment/PricingModel/src/main/java/model/OrderManagement/OrderItem.java
 /Users/pritpatel/Wednesday_Group_58_GroupAssignment/PricingModel/src/main/java/model/CustomerManagement/MarketCatalog.java
@@ -26,7 +25,6 @@
 /Users/pritpatel/Wednesday_Group_58_GroupAssignment/PricingModel/src/main/java/model/MarketModel/MarketChannelAssignment.java
 /Users/pritpatel/Wednesday_Group_58_GroupAssignment/PricingModel/src/main/java/model/CustomerManagement/CustomersReport.java
 /Users/pritpatel/Wednesday_Group_58_GroupAssignment/PricingModel/src/main/java/model/CustomerManagement/ChannelCatalog.java
-/Users/pritpatel/Wednesday_Group_58_GroupAssignment/PricingModel/src/main/java/ui/pricing/AdjustTargetPriceHigherJPanel.java
 /Users/pritpatel/Wednesday_Group_58_GroupAssignment/PricingModel/src/main/java/model/OrderManagement/Order.java
 /Users/pritpatel/Wednesday_Group_58_GroupAssignment/PricingModel/src/main/java/model/CustomerManagement/CustomerProfile.java
 /Users/pritpatel/Wednesday_Group_58_GroupAssignment/PricingModel/src/main/java/model/Business/Business.java
