@@ -1,41 +1,41 @@
-/Users/pritpatel/Wednesday_Group_58_GroupAssignment/PricingModel/src/main/java/ui/MainJFrame.java
-/Users/pritpatel/Wednesday_Group_58_GroupAssignment/PricingModel/src/main/java/model/Personnel/EmployeeProfile.java
-/Users/pritpatel/Wednesday_Group_58_GroupAssignment/PricingModel/src/main/java/model/ProductManagement/SolutionOffer.java
-/Users/pritpatel/Wednesday_Group_58_GroupAssignment/PricingModel/src/main/java/model/OrderManagement/OrderSummary.java
-/Users/pritpatel/Wednesday_Group_58_GroupAssignment/PricingModel/src/main/java/ui/pricing/LoginSupplierJPanel.java
-/Users/pritpatel/Wednesday_Group_58_GroupAssignment/PricingModel/src/main/java/model/OrderManagement/OrderItem.java
-/Users/pritpatel/Wednesday_Group_58_GroupAssignment/PricingModel/src/main/java/model/CustomerManagement/MarketCatalog.java
-/Users/pritpatel/Wednesday_Group_58_GroupAssignment/PricingModel/src/main/java/model/ProductManagement/Product.java
-/Users/pritpatel/Wednesday_Group_58_GroupAssignment/PricingModel/src/main/java/model/OrderManagement/MasterOrderReport.java
-/Users/pritpatel/Wednesday_Group_58_GroupAssignment/PricingModel/src/main/java/ui/pricing/ProductPerformanceJPanel.java
-/Users/pritpatel/Wednesday_Group_58_GroupAssignment/PricingModel/src/main/java/model/Personnel/EmployeeDirectory.java
-/Users/pritpatel/Wednesday_Group_58_GroupAssignment/PricingModel/src/main/java/ui/pricing/SupplierWorkAreaJPanel.java
-/Users/pritpatel/Wednesday_Group_58_GroupAssignment/PricingModel/src/main/java/ui/PricingModel.java
-/Users/pritpatel/Wednesday_Group_58_GroupAssignment/PricingModel/src/main/java/model/ProductManagement/ProductSummary.java
-/Users/pritpatel/Wednesday_Group_58_GroupAssignment/PricingModel/src/main/java/model/ProductManagement/SolutionOfferCatalog.java
-/Users/pritpatel/Wednesday_Group_58_GroupAssignment/PricingModel/src/main/java/model/CustomerManagement/CustomerDirectory.java
-/Users/pritpatel/Wednesday_Group_58_GroupAssignment/PricingModel/src/main/java/model/MarketModel/Market.java
-/Users/pritpatel/Wednesday_Group_58_GroupAssignment/PricingModel/src/main/java/model/CustomerManagement/CustomerSummary.java
-/Users/pritpatel/Wednesday_Group_58_GroupAssignment/PricingModel/src/main/java/model/OrderManagement/MasterOrderList.java
-/Users/pritpatel/Wednesday_Group_58_GroupAssignment/PricingModel/src/main/java/model/UserAccountManagement/UserAccountDirectory.java
-/Users/pritpatel/Wednesday_Group_58_GroupAssignment/PricingModel/src/main/java/model/Personnel/CustomerAccount.java
-/Users/pritpatel/Wednesday_Group_58_GroupAssignment/PricingModel/src/main/java/model/UserAccountManagement/UserAccount.java
-/Users/pritpatel/Wednesday_Group_58_GroupAssignment/PricingModel/src/main/java/model/ProductManagement/ProductCatalog.java
-/Users/pritpatel/Wednesday_Group_58_GroupAssignment/PricingModel/src/main/java/model/MarketingManagement/MarketingPersonProfile.java
-/Users/pritpatel/Wednesday_Group_58_GroupAssignment/PricingModel/src/main/java/model/MarketModel/MarketChannelAssignment.java
-/Users/pritpatel/Wednesday_Group_58_GroupAssignment/PricingModel/src/main/java/model/CustomerManagement/CustomersReport.java
-/Users/pritpatel/Wednesday_Group_58_GroupAssignment/PricingModel/src/main/java/model/CustomerManagement/ChannelCatalog.java
-/Users/pritpatel/Wednesday_Group_58_GroupAssignment/PricingModel/src/main/java/model/OrderManagement/Order.java
-/Users/pritpatel/Wednesday_Group_58_GroupAssignment/PricingModel/src/main/java/model/CustomerManagement/CustomerProfile.java
-/Users/pritpatel/Wednesday_Group_58_GroupAssignment/PricingModel/src/main/java/model/Business/Business.java
-/Users/pritpatel/Wednesday_Group_58_GroupAssignment/PricingModel/src/main/java/model/Personnel/Person.java
-/Users/pritpatel/Wednesday_Group_58_GroupAssignment/PricingModel/src/main/java/model/MarketModel/Channel.java
-/Users/pritpatel/Wednesday_Group_58_GroupAssignment/PricingModel/src/main/java/model/SalesManagement/SalesPersonProfile.java
-/Users/pritpatel/Wednesday_Group_58_GroupAssignment/PricingModel/src/main/java/model/Supplier/Supplier.java
-/Users/pritpatel/Wednesday_Group_58_GroupAssignment/PricingModel/src/main/java/model/Personnel/Profile.java
-/Users/pritpatel/Wednesday_Group_58_GroupAssignment/PricingModel/src/main/java/model/Business/ConfigureABusiness.java
-/Users/pritpatel/Wednesday_Group_58_GroupAssignment/PricingModel/src/main/java/model/SalesManagement/SalesPersonDirectory.java
-/Users/pritpatel/Wednesday_Group_58_GroupAssignment/PricingModel/src/main/java/model/ProductManagement/ProductsReport.java
-/Users/pritpatel/Wednesday_Group_58_GroupAssignment/PricingModel/src/main/java/model/Personnel/PersonDirectory.java
-/Users/pritpatel/Wednesday_Group_58_GroupAssignment/PricingModel/src/main/java/model/MarketingManagement/MarketingPersonDirectory.java
-/Users/pritpatel/Wednesday_Group_58_GroupAssignment/PricingModel/src/main/java/model/Supplier/SupplierDirectory.java
+C:\Users\gaura\Documents\AED group assignment\Wednesday_Group_58_GroupAssignment\PricingModel\src\main\java\model\Personnel\EmployeeProfile.java
+C:\Users\gaura\Documents\AED group assignment\Wednesday_Group_58_GroupAssignment\PricingModel\src\main\java\ui\pricing\ProductPerformanceJPanel.java
+C:\Users\gaura\Documents\AED group assignment\Wednesday_Group_58_GroupAssignment\PricingModel\src\main\java\model\MarketModel\MarketChannelAssignment.java
+C:\Users\gaura\Documents\AED group assignment\Wednesday_Group_58_GroupAssignment\PricingModel\src\main\java\model\ProductManagement\ProductSummary.java
+C:\Users\gaura\Documents\AED group assignment\Wednesday_Group_58_GroupAssignment\PricingModel\src\main\java\model\OrderManagement\MasterOrderReport.java
+C:\Users\gaura\Documents\AED group assignment\Wednesday_Group_58_GroupAssignment\PricingModel\src\main\java\model\Personnel\Person.java
+C:\Users\gaura\Documents\AED group assignment\Wednesday_Group_58_GroupAssignment\PricingModel\src\main\java\model\CustomerManagement\CustomerProfile.java
+C:\Users\gaura\Documents\AED group assignment\Wednesday_Group_58_GroupAssignment\PricingModel\src\main\java\ui\PricingModel.java
+C:\Users\gaura\Documents\AED group assignment\Wednesday_Group_58_GroupAssignment\PricingModel\src\main\java\model\ProductManagement\ProductsReport.java
+C:\Users\gaura\Documents\AED group assignment\Wednesday_Group_58_GroupAssignment\PricingModel\src\main\java\model\Business\ConfigureABusiness.java
+C:\Users\gaura\Documents\AED group assignment\Wednesday_Group_58_GroupAssignment\PricingModel\src\main\java\ui\pricing\SupplierWorkAreaJPanel.java
+C:\Users\gaura\Documents\AED group assignment\Wednesday_Group_58_GroupAssignment\PricingModel\src\main\java\model\Business\Business.java
+C:\Users\gaura\Documents\AED group assignment\Wednesday_Group_58_GroupAssignment\PricingModel\src\main\java\model\OrderManagement\Order.java
+C:\Users\gaura\Documents\AED group assignment\Wednesday_Group_58_GroupAssignment\PricingModel\src\main\java\model\OrderManagement\OrderItem.java
+C:\Users\gaura\Documents\AED group assignment\Wednesday_Group_58_GroupAssignment\PricingModel\src\main\java\model\ProductManagement\SolutionOffer.java
+C:\Users\gaura\Documents\AED group assignment\Wednesday_Group_58_GroupAssignment\PricingModel\src\main\java\model\MarketingManagement\MarketingPersonProfile.java
+C:\Users\gaura\Documents\AED group assignment\Wednesday_Group_58_GroupAssignment\PricingModel\src\main\java\model\MarketModel\Channel.java
+C:\Users\gaura\Documents\AED group assignment\Wednesday_Group_58_GroupAssignment\PricingModel\src\main\java\model\CustomerManagement\CustomersReport.java
+C:\Users\gaura\Documents\AED group assignment\Wednesday_Group_58_GroupAssignment\PricingModel\src\main\java\model\MarketModel\Market.java
+C:\Users\gaura\Documents\AED group assignment\Wednesday_Group_58_GroupAssignment\PricingModel\src\main\java\model\Personnel\CustomerAccount.java
+C:\Users\gaura\Documents\AED group assignment\Wednesday_Group_58_GroupAssignment\PricingModel\src\main\java\model\CustomerManagement\MarketCatalog.java
+C:\Users\gaura\Documents\AED group assignment\Wednesday_Group_58_GroupAssignment\PricingModel\src\main\java\model\CustomerManagement\CustomerSummary.java
+C:\Users\gaura\Documents\AED group assignment\Wednesday_Group_58_GroupAssignment\PricingModel\src\main\java\model\MarketingManagement\MarketingPersonDirectory.java
+C:\Users\gaura\Documents\AED group assignment\Wednesday_Group_58_GroupAssignment\PricingModel\src\main\java\model\OrderManagement\MasterOrderList.java
+C:\Users\gaura\Documents\AED group assignment\Wednesday_Group_58_GroupAssignment\PricingModel\src\main\java\ui\pricing\LoginSupplierJPanel.java
+C:\Users\gaura\Documents\AED group assignment\Wednesday_Group_58_GroupAssignment\PricingModel\src\main\java\model\Supplier\SupplierDirectory.java
+C:\Users\gaura\Documents\AED group assignment\Wednesday_Group_58_GroupAssignment\PricingModel\src\main\java\model\ProductManagement\Product.java
+C:\Users\gaura\Documents\AED group assignment\Wednesday_Group_58_GroupAssignment\PricingModel\src\main\java\model\Supplier\Supplier.java
+C:\Users\gaura\Documents\AED group assignment\Wednesday_Group_58_GroupAssignment\PricingModel\src\main\java\model\Personnel\EmployeeDirectory.java
+C:\Users\gaura\Documents\AED group assignment\Wednesday_Group_58_GroupAssignment\PricingModel\src\main\java\model\ProductManagement\ProductCatalog.java
+C:\Users\gaura\Documents\AED group assignment\Wednesday_Group_58_GroupAssignment\PricingModel\src\main\java\model\SalesManagement\SalesPersonDirectory.java
+C:\Users\gaura\Documents\AED group assignment\Wednesday_Group_58_GroupAssignment\PricingModel\src\main\java\model\Personnel\Profile.java
+C:\Users\gaura\Documents\AED group assignment\Wednesday_Group_58_GroupAssignment\PricingModel\src\main\java\model\CustomerManagement\CustomerDirectory.java
+C:\Users\gaura\Documents\AED group assignment\Wednesday_Group_58_GroupAssignment\PricingModel\src\main\java\model\SalesManagement\SalesPersonProfile.java
+C:\Users\gaura\Documents\AED group assignment\Wednesday_Group_58_GroupAssignment\PricingModel\src\main\java\model\ProductManagement\SolutionOfferCatalog.java
+C:\Users\gaura\Documents\AED group assignment\Wednesday_Group_58_GroupAssignment\PricingModel\src\main\java\model\UserAccountManagement\UserAccount.java
+C:\Users\gaura\Documents\AED group assignment\Wednesday_Group_58_GroupAssignment\PricingModel\src\main\java\model\OrderManagement\OrderSummary.java
+C:\Users\gaura\Documents\AED group assignment\Wednesday_Group_58_GroupAssignment\PricingModel\src\main\java\model\Personnel\PersonDirectory.java
+C:\Users\gaura\Documents\AED group assignment\Wednesday_Group_58_GroupAssignment\PricingModel\src\main\java\model\CustomerManagement\ChannelCatalog.java
+C:\Users\gaura\Documents\AED group assignment\Wednesday_Group_58_GroupAssignment\PricingModel\src\main\java\model\UserAccountManagement\UserAccountDirectory.java
+C:\Users\gaura\Documents\AED group assignment\Wednesday_Group_58_GroupAssignment\PricingModel\src\main\java\ui\MainJFrame.java
