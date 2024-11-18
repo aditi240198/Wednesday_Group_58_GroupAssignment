@@ -12,7 +12,7 @@ import ui.pricing.LoginSupplierJPanel;
 
 /**
  *
- * @author Hp
+ * @author Prit
  */
 public class MainJFrame extends javax.swing.JFrame {
 

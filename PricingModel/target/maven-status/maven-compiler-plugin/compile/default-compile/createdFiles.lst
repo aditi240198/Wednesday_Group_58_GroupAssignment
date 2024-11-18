@@ -19,7 +19,6 @@ model/MarketModel/Market.class
 model/MarketingManagement/MarketingPersonProfile.class
 model/OrderManagement/MasterOrderReport.class
 model/OrderManagement/MasterOrderList.class
-ui/pricing/AdjustTargetPriceHigherJPanel.class
 model/Personnel/Profile.class
 model/Supplier/Supplier.class
 ui/pricing/SupplierWorkAreaJPanel$1.class
@@ -34,7 +33,6 @@ ui/pricing/LoginSupplierJPanel$1.class
 model/Business/ConfigureABusiness.class
 ui/pricing/ProductPerformanceJPanel$1.class
 ui/pricing/ProductPerformanceJPanel$4.class
-ui/pricing/AdjustTargetPriceLowerJPanel.class
 model/ProductManagement/ProductSummary.class
 ui/MainJFrame$1.class
 model/CustomerManagement/CustomerDirectory.class

@@ -67,9 +67,9 @@ public class ConfigureABusiness {
         ProductCatalog productCatalog = supplier.getProductCatalog();
 
         for (int j = 1; j <= 10; j++) {
-            int floorprice = 1000 * j;
-            int cielingPrice = floorprice + random.nextInt(1000) + 5000;
-            int targetPrice = cielingPrice + random.nextInt(500) + 1000; // some variation
+            int floorprice = 500 * j;
+            int cielingPrice = floorprice + random.nextInt(1000) + 2000;
+            int targetPrice = cielingPrice + random.nextInt(500) + 700; // some variation
             productCatalog.newProduct("Product " + j, floorprice, cielingPrice, targetPrice);
         }
     }
@@ -117,7 +117,7 @@ public class ConfigureABusiness {
             Product product = supplier.getProductCatalog().getProductList().get(productIndex);
 
             // Set unique product name by adding supplier index
-            String uniqueProductName = "Product_S" + (supplierIndex + 1) + "_P" + (productIndex + 1);
+            String uniqueProductName = "Product-S" + (supplierIndex + 1) + "-P" + (productIndex + 1);
             product.setName(uniqueProductName);
 
             ProductSummary productSummary = new ProductSummary(product);
