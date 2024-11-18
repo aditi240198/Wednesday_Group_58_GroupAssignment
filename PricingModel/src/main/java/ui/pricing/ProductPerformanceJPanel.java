@@ -6,7 +6,20 @@ package ui.pricing;
 
 import javax.swing.JPanel;
 import model.Supplier.Supplier;
-
+import java.awt.CardLayout;
+import java.awt.Dimension;
+import java.util.ArrayList;
+import javax.swing.JEditorPane;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.text.html.HTMLEditorKit;
+import model.OrderManagement.OrderItem;
+import model.ProductManagement.Product;
+import model.ProductManagement.ProductSummary;
+import model.ProductManagement.ProductsReport;
+import model.Supplier.Supplier;
 /**
  *
  * @author Hp
@@ -35,19 +48,141 @@ public class ProductPerformanceJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        lblTittle = new javax.swing.JLabel();
+        btnBack = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tblProductPerformance = new javax.swing.JTable();
+        btnAdjustPricesLower = new javax.swing.JButton();
+        btnAdjustPricesHigher = new javax.swing.JButton();
+        btnRunSimulation = new javax.swing.JButton();
+        btnMaximizeProfitMargins = new javax.swing.JButton();
+        btnGenerateReport = new javax.swing.JButton();
+
+        setPreferredSize(new java.awt.Dimension(984, 539));
+
+        lblTittle.setText("Product Performance Analysis");
+
+        btnBack.setText("<<<Back");
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackActionPerformed(evt);
+            }
+        });
+
+        tblProductPerformance.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null}
+            },
+            new String [] {
+                "Rank", "Product Name", "Target Price", "Sales Revenue", "Sales Above Target", "Sales Below Target", "Price Perforname"
+            }
+        ));
+        jScrollPane1.setViewportView(tblProductPerformance);
+
+        btnAdjustPricesLower.setText("Adjust Target Prices Lower");
+        btnAdjustPricesLower.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAdjustPricesLowerActionPerformed(evt);
+            }
+        });
+
+        btnAdjustPricesHigher.setText("Adjust Target Prices Higher");
+
+        btnRunSimulation.setText("Run Simulation");
+        btnRunSimulation.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRunSimulationActionPerformed(evt);
+            }
+        });
+
+        btnMaximizeProfitMargins.setText("Maximize Profit");
+
+        btnGenerateReport.setText("Generate Report");
+        btnGenerateReport.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGenerateReportActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(36, 36, 36)
+                        .addComponent(btnBack)
+                        .addGap(158, 158, 158)
+                        .addComponent(lblTittle))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(49, 49, 49)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(btnAdjustPricesLower)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnAdjustPricesHigher)
+                                .addGap(31, 31, 31)
+                                .addComponent(btnRunSimulation)
+                                .addGap(37, 37, 37)
+                                .addComponent(btnMaximizeProfitMargins)
+                                .addGap(35, 35, 35)
+                                .addComponent(btnGenerateReport))
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 877, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(88, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(17, 17, 17)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblTittle)
+                    .addComponent(btnBack))
+                .addGap(33, 33, 33)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 322, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(34, 34, 34)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnAdjustPricesLower)
+                    .addComponent(btnAdjustPricesHigher)
+                    .addComponent(btnRunSimulation)
+                    .addComponent(btnMaximizeProfitMargins)
+                    .addComponent(btnGenerateReport))
+                .addContainerGap(87, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        // TODO add your handling code here:
+        userProcessContainer.remove(this);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.previous(userProcessContainer);
+    }//GEN-LAST:event_btnBackActionPerformed
+
+    private void btnAdjustPricesLowerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdjustPricesLowerActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnAdjustPricesLowerActionPerformed
+
+    private void btnRunSimulationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRunSimulationActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnRunSimulationActionPerformed
+
+    private void btnGenerateReportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenerateReportActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnGenerateReportActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAdjustPricesHigher;
+    private javax.swing.JButton btnAdjustPricesLower;
+    private javax.swing.JButton btnBack;
+    private javax.swing.JButton btnGenerateReport;
+    private javax.swing.JButton btnMaximizeProfitMargins;
+    private javax.swing.JButton btnRunSimulation;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lblTittle;
+    private javax.swing.JTable tblProductPerformance;
     // End of variables declaration//GEN-END:variables
 }
