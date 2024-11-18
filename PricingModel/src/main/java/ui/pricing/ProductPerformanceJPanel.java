@@ -230,11 +230,47 @@ public class ProductPerformanceJPanel extends javax.swing.JPanel {
 
     private void btnRunSimulationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRunSimulationActionPerformed
         // TODO add your handling code here:
+        int totalRevenueImpact = 0;
+        int highestImpact = Integer.MIN_VALUE;
+        Product highestImpactProduct = null;
+
+        // Loop through each product to calculate revenue impact with adjusted target prices
+        for (Product product : supplier.getProductCatalog().getProductList()) {
+            int originalTargetPrice = product.getTargetPrice();
+            int initialRevenue = simulateRevenue(product, originalTargetPrice);
+
+            // Adjust the target price temporarily
+            int adjustmentAmount = determineAdjustmentAmount(product);
+            product.setTargetPrice(originalTargetPrice + adjustmentAmount);
+
+            // Calculate adjusted revenue based on new target price
+            int adjustedRevenue = simulateRevenue(product, product.getTargetPrice());
+            int revenueImpact = adjustedRevenue - initialRevenue;
+
+            // Accumulate total revenue impact
+            totalRevenueImpact += revenueImpact;
+
+            // Track the product with the highest revenue impact
+            if (revenueImpact > highestImpact) {
+                highestImpact = revenueImpact;
+                highestImpactProduct = product;
+            }
+
+            // Reset target price after simulation
+            product.setTargetPrice(originalTargetPrice);
+        }
+
+        // Display simulation results
+        JOptionPane.showMessageDialog(this, "Total Revenue Impact: " + totalRevenueImpact
+                + "\nHighest Impact Product: " + (highestImpactProduct != null ? highestImpactProduct.getProductName() : "None")
+                + " with impact of " + highestImpact);
+        populateTable();
         
     }//GEN-LAST:event_btnRunSimulationActionPerformed
 
     private void btnGenerateReportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenerateReportActionPerformed
         // TODO add your handling code here:
+        
     }//GEN-LAST:event_btnGenerateReportActionPerformed
 
     private void btnAdjustPricesHigherActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdjustPricesHigherActionPerformed
@@ -287,6 +323,15 @@ public class ProductPerformanceJPanel extends javax.swing.JPanel {
         }
 
         return adjustmentAmount;
+    }
+    
+    private int simulateRevenue(Product product, int targetPrice) {
+        int revenue = 0;
+        for (OrderItem item : product.getOrderItems()) {  // Assuming getOrderItems() retrieves all items for this product
+            int quantity = item.getQuantity();
+            revenue += quantity * targetPrice;
+        }
+        return revenue;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
