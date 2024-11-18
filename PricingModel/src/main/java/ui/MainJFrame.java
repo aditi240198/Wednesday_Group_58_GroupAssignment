@@ -43,6 +43,8 @@ public class MainJFrame extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(911, 454));
 
+        ControlArea.setBackground(new java.awt.Color(204, 200, 195));
+
         btnSupplier.setText("Supplier");
         btnSupplier.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -64,11 +66,12 @@ public class MainJFrame extends javax.swing.JFrame {
             .addGroup(ControlAreaLayout.createSequentialGroup()
                 .addGap(149, 149, 149)
                 .addComponent(btnSupplier)
-                .addContainerGap(213, Short.MAX_VALUE))
+                .addContainerGap(852, Short.MAX_VALUE))
         );
 
         SplitPane.setLeftComponent(ControlArea);
 
+        userProcessContainer.setBackground(new java.awt.Color(204, 214, 197));
         userProcessContainer.setLayout(new java.awt.CardLayout());
         SplitPane.setRightComponent(userProcessContainer);
 

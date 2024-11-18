@@ -42,6 +42,8 @@ public class LoginSupplierJPanel extends javax.swing.JPanel {
         lblTitle = new javax.swing.JLabel();
         lblSupplierChooser = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(204, 214, 197));
+
         cmbSupplier.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         cmbSupplier.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
